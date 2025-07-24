@@ -1,7 +1,3 @@
-"""
-Função utilitária para obter o cliente Redis.
-"""
-
 import redis
 
 def get_redis():

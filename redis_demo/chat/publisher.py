@@ -1,7 +1,7 @@
-import redis
+from redis_client import get_redis
 
 def main():
-    r = redis.Redis(host='localhost', port=6379, decode_responses=True)
+    r = get_redis()
     canal = input('Canal para publicar: ')
     usuario = input('Seu nome: ')
     print('Digite mensagens para enviar. Ctrl+C para sair.')

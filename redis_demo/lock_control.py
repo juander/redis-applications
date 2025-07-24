@@ -1,5 +1,6 @@
-import redis
 import time
+
+from redis_client import get_redis
 
 def acquire_lock(r, lock_key, expire=15):
     return r.set(lock_key, 'locked', nx=True, ex=expire)
@@ -8,7 +9,7 @@ def release_lock(r, lock_key):
     r.delete(lock_key)
 
 def run_concurrency_demo():
-    r = redis.Redis(host='localhost', port=6379, decode_responses=True)
+    r = get_redis()
     lock_key = 'demo_lock'
     
     while True:

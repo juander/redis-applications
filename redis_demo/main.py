@@ -2,19 +2,12 @@
 Sistema de demonstração das funcionalidades avançadas do Redis.
 Menu principal que permite acessar os diferentes módulos demonstrativos.
 
-Funcionalidades demonstradas:
-1. Leaderboard - Rankings em tempo real com Sorted Sets
-2. Chat - Sistema de mensagens em tempo real com Pub/Sub  
-3. Locks - Controle de concorrência distribuída com SET NX EX
-
-Executar: python main.py
 """
 
 import sys
 import os
 from typing import Optional
 
-# Adiciona o diretório atual ao path para imports
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 try:
@@ -23,7 +16,7 @@ try:
     from lock_control import run_concurrency_demo
     import subprocess
 except ImportError as e:
-    print(f"❌ Erro ao importar módulos: {e}")
+    print(f"Erro ao importar módulos: {e}")
     print("Certifique-se de que todos os arquivos estão no diretório correto")
     sys.exit(1)
 
@@ -58,7 +51,7 @@ def check_redis_connection() -> bool:
         r.ping()
         return True
     except Exception as e:
-        print(f"❌ Erro ao verificar conexão: {e}")
+        print(f"Erro ao verificar conexão: {e}")
         return False
 
 
@@ -92,7 +85,7 @@ def show_redis_info():
         print("="*50)
         
     except Exception as e:
-        print(f"❌ Erro ao obter informações: {e}")
+        print(f"Erro ao obter informações: {e}")
 
 
 def run_chat_publisher():
@@ -109,9 +102,9 @@ def run_chat_publisher():
         subprocess.run([sys.executable, chat_path])
         
     except FileNotFoundError:
-        print("❌ Arquivo publisher.py não encontrado")
+        print("Arquivo publisher.py não encontrado")
     except Exception as e:
-        print(f"❌ Erro ao executar publisher: {e}")
+        print(f"Erro ao executar publisher: {e}")
 
 
 def run_chat_subscriber():
@@ -128,9 +121,9 @@ def run_chat_subscriber():
         subprocess.run([sys.executable, chat_path])
         
     except FileNotFoundError:
-        print("❌ Arquivo subscriber.py não encontrado")
+        print("Arquivo subscriber.py não encontrado")
     except Exception as e:
-        print(f"❌ Erro ao executar subscriber: {e}")
+        print(f"Erro ao executar subscriber: {e}")
 
 
 def show_help():
@@ -211,7 +204,7 @@ def clean_redis_demo_data():
             print("ℹ️ Nenhuma chave de demo encontrada")
             
     except Exception as e:
-        print(f"❌ Erro ao limpar dados: {e}")
+        print(f"Erro ao limpar dados: {e}")
 
 
 def main():
@@ -290,7 +283,7 @@ def main():
             print("\n\n👋 Demo encerrado pelo usuário")
             break
         except Exception as e:
-            print(f"\n❌ Erro inesperado: {e}")
+            print(f"\nErro inesperado: {e}")
             print("Retornando ao menu principal...")
 
 
@@ -300,5 +293,5 @@ if __name__ == "__main__":
     except KeyboardInterrupt:
         print("\n👋 Programa encerrado")
     except Exception as e:
-        print(f"❌ Erro fatal: {e}")
+        print(f"Erro fatal: {e}")
         sys.exit(1)
