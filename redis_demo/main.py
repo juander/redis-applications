@@ -6,9 +6,6 @@ Menu principal que permite acessar os diferentes módulos demonstrativos.
 
 import sys
 import os
-from typing import Optional
-
-sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 try:
     from redis_client import get_redis
@@ -27,12 +24,12 @@ def show_banner():
 ╔══════════════════════════════════════════════════════════════╗
 ║                    🚀 REDIS DEMO AVANÇADO                    ║
 ║                                                              ║
-║  Demonstração de funcionalidades poderosas do Redis além    ║
+║  Demonstração de funcionalidades poderosas do Redis além     ║
 ║  do uso tradicional de cache                                 ║
 ║                                                              ║
-║  📊 Leaderboard - Rankings em tempo real (Sorted Sets)      ║
-║  💬 Chat - Mensagens em tempo real (Pub/Sub)                ║
-║  🔒 Locks - Controle de concorrência (SET NX EX)            ║
+║  📊 Leaderboard - Rankings em tempo real (Sorted Sets)       ║
+║  💬 Chat - Mensagens em tempo real (Pub/Sub)                 ║
+║  🔒 Locks - Controle de concorrência (SET NX EX)             ║
 ║                                                              ║
 ╚══════════════════════════════════════════════════════════════╝
     """
@@ -91,7 +88,7 @@ def show_redis_info():
 def run_chat_publisher():
     """Executa o publisher do chat em um processo separado."""
     try:
-        chat_path = os.path.join(os.path.dirname(__file__), "chat", "publisher.py")
+        chat_path = os.path.join(os.path.dirname(__file__),  "publisher.py")
         
         print("🚀 Iniciando Chat Publisher...")
         print("💡 Dica: Execute este comando em outro terminal para o Subscriber:")
@@ -110,7 +107,7 @@ def run_chat_publisher():
 def run_chat_subscriber():
     """Executa o subscriber do chat em um processo separado."""
     try:
-        chat_path = os.path.join(os.path.dirname(__file__), "chat", "subscriber.py")
+        chat_path = os.path.join(os.path.dirname(__file__), "subscriber.py")
         
         print("🚀 Iniciando Chat Subscriber...")
         print("💡 Dica: Execute este comando em outro terminal para o Publisher:")
