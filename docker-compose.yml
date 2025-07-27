@@ -7,6 +7,16 @@ services:
     volumes:
       - redis_data:/data
     command: redis-server --appendonly yes
+  
+  python-app:
+    build: ./redis_demo
+    container_name: python-redis
+    volumes:
+      - ./redis_demo:/app
+    working_dir: /app
+    command: python3 main.py
+    depends_on:
+      - redis
 
 volumes:
   redis_data:
