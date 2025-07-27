@@ -1,0 +1,18 @@
+# Python cache
+redis_demo/__pycache__/
+redis_demo/*.pyc
+
+# Git
+.git/
+.gitignore
+
+# Docker
+.dockerignore
+docker-compose.yml
+
+# Documentação
+*.md
+README*
+
+# Logs
+*.log
