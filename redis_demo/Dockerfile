@@ -6,4 +6,4 @@ COPY . /app
 
 RUN pip install --no-cache-dir redis
 
-CMD ["python", "main.py"]
+CMD ["/bin/bash"]
